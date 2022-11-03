@@ -1,0 +1,97 @@
+/* Write your CSS here */
+.main_container {
+  padding-top: 40px;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 500px;
+}
+
+.main_heading {
+  color: #1e293b;
+  font-size: 45px;
+  font-family: 'Roboto';
+}
+
+.comments_image {
+  width: 100%;
+}
+
+.description {
+  color: #475569;
+  font-size: 18px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.inputs_given {
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  border: 2px solid #dee0e3;
+  border-radius: 5px;
+  font-family: 'Roboto';
+  outline: none;
+  margin-bottom: 15px;
+}
+
+.add_button {
+  color: #ffffff;
+  font-size: 18px;
+  background-color: #0284c7;
+  border-radius: 5px;
+  padding: 10px 20px;
+  border: none;
+  font-family: 'Roboto';
+  margin-bottom: 15px;
+}
+
+hr {
+  border: 1px solid #dee0e3;
+  background-color: #dee0e3;
+  margin-bottom: 15px;
+}
+
+.comments_count {
+  background-color: #0284c7;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.comments_heading {
+  font-size: 18px;
+  color: #475569;
+  font-family: 'Roboto';
+}
+
+ul {
+  padding-left: 0px;
+  list-style-type: none;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 900px;
+  }
+  .form_container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .comments_image {
+    width: 50%;
+    order: 1;
+  }
+  .inputs_given {
+    width: 70%;
+  }
+  .inputs_container {
+    width: 50%;
+  }
+}
