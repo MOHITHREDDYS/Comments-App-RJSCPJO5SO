@@ -6,8 +6,9 @@ import './index.css'
 const CommentItem = props => {
   const {commentDetails, initialColor, commentLiked, deleteComment} = props
   const {id, personName, comment, isCommentLiked, commentTime} = commentDetails
-  const initial = personName.slice(0, 1)
-
+  const initial = personName.slice(0, 1).toUpperCase()
+  const userName =
+    personName[0].toUpperCase() + personName.slice(1, personName.length)
   const likeImgUrl = isCommentLiked
     ? 'https://assets.ccbp.in/frontend/react-js/comments-app/liked-img.png'
     : 'https://assets.ccbp.in/frontend/react-js/comments-app/like-img.png'
@@ -27,12 +28,12 @@ const CommentItem = props => {
   return (
     <li>
       <div className="comment_container">
-        <p>
-          <span className={`${initialColor} initial`}>{initial}</span>
+        <p className={`${initialColor} initial`}>
+          <span>{initial}</span>
         </p>
         <div>
           <p className="person_name">
-            {personName}
+            {userName}
             <span className="time">{timeDifference}</span>
           </p>
           <p className="comment">{comment}</p>
@@ -50,6 +51,7 @@ const CommentItem = props => {
           </button>
         </div>
         <button
+          data-testid="delete"
           type="button"
           className="delete_button"
           onClick={onClickingDeleteButton}

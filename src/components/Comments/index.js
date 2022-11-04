@@ -17,19 +17,10 @@ const initialContainerBackgroundClassNames = [
 
 class Comments extends Component {
   state = {
-    count: 1,
+    count: 0,
     personName: '',
     comment: '',
-    commentsList: [
-      {
-        id: 1,
-        personName: 'Rahul Kumar',
-        comment:
-          'I liked your work. Get ready for the project ghhgj jdjj hsdh gfgfgfdghjgfgv gfgfgfg ggdg gsgdg jj hggf',
-        isCommentLiked: false,
-        commentTime: '2022-11-03 19:25:01',
-      },
-    ],
+    commentsList: [],
   }
 
   onChangingInput = event => {
@@ -79,6 +70,7 @@ class Comments extends Component {
 
   render() {
     const {count, personName, comment, commentsList} = this.state
+    let position = -1
 
     /* console.log(
       'count :',
@@ -133,15 +125,24 @@ class Comments extends Component {
           </p>
           {commentsList.length > 0 ? (
             <ul>
-              {commentsList.map(eachComment => (
-                <CommentItem
-                  key={eachComment.id}
-                  commentDetails={eachComment}
-                  initialColor={initialContainerBackgroundClassNames[0]}
-                  commentLiked={this.commentLiked}
-                  deleteComment={this.deleteComment}
-                />
-              ))}
+              {commentsList.map(eachComment => {
+                position += 1
+                if (position >= 6) {
+                  position %= 7
+                }
+                console.log(position)
+                return (
+                  <CommentItem
+                    key={eachComment.id}
+                    commentDetails={eachComment}
+                    initialColor={
+                      initialContainerBackgroundClassNames[position]
+                    }
+                    commentLiked={this.commentLiked}
+                    deleteComment={this.deleteComment}
+                  />
+                )
+              })}
             </ul>
           ) : (
             ''
